@@ -1,0 +1,113 @@
+.automatic-element-creation-form {
+  width: 60%;
+  min-width: 400px;
+}
+.automatic-element-creation-form .row {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px -15px;
+}
+.automatic-element-creation-form .row .col {
+  max-width: 50%;
+  padding: 0 15px;
+}
+.automatic-element-creation-form input[type='text'] {
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #000;
+  outline: none;
+}
+.automatic-element-creation-form .add-row {
+  display: block;
+  background-color: #2e9100;
+  color: #fff;
+  cursor: pointer;
+  padding: 5px 20px;
+  font-size: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.automatic-element-creation-form .add-row:hover {
+  background-color: #1e5f00;
+}
+.automatic-element-creation-form button {
+  border: none;
+  font-size: 20px;
+  outline: none;
+  display: block;
+  background-color: #666;
+  color: #fff;
+  cursor: pointer;
+  padding: 5px 20px;
+}
+.automatic-element-creation-form button:hover {
+  background-color: #222;
+}
+.automatic-element-creation-form .error {
+  border: 2px solid red !important;
+}
+.automatic-element-creation-form .tab-item {
+  display: flex;
+  padding: 10px 20px;
+}
+.automatic-element-creation-form .tab-item:nth-child(even) {
+  background-color: #eee;
+}
+.automatic-element-creation-form .tab-item .move {
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.automatic-element-creation-form .tab-item .move .up {
+  transform: translate(-2px, 6px) rotate(-90deg);
+}
+.automatic-element-creation-form .tab-item .move .down {
+  transform: translateY(-6px) rotate(90deg);
+}
+.automatic-element-creation-form .tab-item .move .up,
+.automatic-element-creation-form .tab-item .move .down {
+  display: block;
+  font-size: 25px;
+  cursor: pointer;
+}
+.automatic-element-creation-form .tab-item .move .up:hover,
+.automatic-element-creation-form .tab-item .move .down:hover {
+  background-color: #888;
+  color: #fff;
+}
+.automatic-element-creation-form .tab-item .title {
+  padding: 20px 10px;
+}
+.automatic-element-creation-form .tab-item .title input {
+  background-color: transparent;
+}
+.automatic-element-creation-form .tab-item .text {
+  min-height: 70px;
+  flex: 1;
+  box-sizing: border-box;
+  padding-top: 15px;
+}
+.automatic-element-creation-form .tab-item .text textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+  outline: none;
+  resize: vertical;
+  min-height: 35px;
+}
+.automatic-element-creation-form .tab-item .remove {
+  padding: 16px;
+}
+.automatic-element-creation-form .tab-item .remove span {
+  display: block;
+  padding: 5px 7px;
+  background-color: #c00000;
+  color: #fff;
+  cursor: pointer;
+}
+.automatic-element-creation-form .tab-item .remove span:hover {
+  background-color: #770000;
+}

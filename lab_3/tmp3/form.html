@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="style_lab1.css" rel="stylesheet" type="text/css" />
+  <link href="style_lab3.css" rel="stylesheet" type="text/css" />
+  <title>lab_2</title>
+</head>
+
+<body>
+  <div class="root">
+    <div class="content">
+      <div class="left-sidebar bordered focus">
+        <h3>1960s – Celebrities in CHANEL</h3>
+        <p>
+          At the peak of CHANEL, many of the most prominent women of the era wore CHANEL regularly. From actress Romy
+          Schneider, model Dorothea McGowan to the former first lady of the United States Jackie Kennedy, CHANEL truly
+          became a household name.
+        </p>
+        <div id="images-container">
+            
+        </div>
+      </div>
+      <div class="base">
+        <div class="header bordered focus">
+          <p class="header-text" id="header">
+            From classic perfumes to the iconic little black dress, CHANEL is undoubtedly one of the most iconic fashion
+            houses of all time. As the timeless fragrance, CHANEL No. 5, marks its 100th birthday in 2021, it’s a good
+            time to take a look back into the history of CHANEL.
+          </p>
+          <h1 class="logo bordered">Chanel</h1>
+        </div>
+        <div class="page">
+          <div class="main-part ">
+            <div class="menu bordered no-padding focus">
+              <nav>
+                <ul>
+                  <li>
+                    <a href="index.php">Home</a>
+                  </li>
+                  <li>
+                    <a href="list.php">List</a>
+                  </li>
+                  <li>
+                    <a href="ordered-list.html">Ordered list</a>
+                  </li>
+                  <li>
+                    <a href="images.html">Images</a>
+                  </li>
+                  <li>
+                    <a href="map.html">Map</a>
+                  </li>
+                  <li>
+                    <a href="form.html">Form</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div class="block bordered">
+              <h4>numbers</h4>
+              <form method="POST" onsubmit="return calculate()" class="form-for-numbers" id="calculate-form">
+                <input type="number" name="value1" placeholder="enter value">
+                <input type="number" name="value2" placeholder="enter value">
+                <input type="number" name="value3" placeholder="enter value">
+                <input type="number" name="value4" placeholder="enter value">
+                <input type="number" name="value5" placeholder="enter value">
+                <input type="number" name="value6" placeholder="enter value">
+                <input type="number" name="value7" placeholder="enter value">
+                <input type="number" name="value8" placeholder="enter value">
+                <input type="number" name="value9" placeholder="enter value">
+                <input type="number" name="value10" placeholder="enter value">
+                <button>calculate</button>
+              </form>
+              <form method="POST" class="focus-form" id="color-form">
+                <input type="color" name="color of the elements" class="focus-element">
+              </form>
+              <form method="POST" id="photo-form">
+                <input type="file" name="images[]" id="images-input" multiple="multiple">
+                <button>1</button>
+              </form>
+              <br>
+              <button id="delete-images-button">2</button>
+            </div>
+          </div>
+          <div class="right-sidebar bordered focus">
+            <h3>
+              1931 – CHANEL Meets Hollywood
+            </h3>
+            <p>
+              At the personal request of Samuel Goldwyn, Gabrielle Chanel went to Hollywood to create outfits for the
+              leading stars both on and off the screen. She designed outfits for the likes of Gloria Swanson, Madge
+              Evans and Barbara Weeks. When Hollywood dismissed her looks for being too clean, Gabrielle Chanel chose
+              not to compromise and walked away.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer bordered">
+      <h2 class="footer-logo bordered" id="name">Anastasiia Titova</h2>
+      <p id="footer">
+        From classic perfumes to the iconic little black dress, CHANEL is undoubtedly one of the most iconic fashion
+        houses of all time.
+      </p>
+    </div>
+  </div>
+  <script src="cookies.js"></script>
+  <script defer>
+    document.querySelectorAll("#calculate-form input").forEach((val) => val.value = Math.round(Math.random() * 1000))
+
+    let calculate = () => {
+      let max
+      let min
+
+      let values = []
+      document.querySelectorAll("#calculate-form input").forEach((val) => values.push(val.value))
+
+      max = Math.max(...values)
+      min = Math.min(...values)
+
+      alert(`max: ${max}; min: ${min}`)
+
+      setCookie("min", min)
+      setCookie("max", max)
+      
+      return false
+    }
+
+    let changeBorder = () => {
+      let color = document.querySelector("#color-form input").value
+      document.querySelectorAll(".bordered").forEach((val) => val.style.borderColor = color)
+      setCookie("color", color)
+    }
+    
+
+    let uploadImages = (e) => {
+      e.preventDefault()
+      let imageFile = document.querySelector("#images-input").files[0]
+      if(!imageFile) 
+        return
+      const fileReader = new FileReader()
+      fileReader.addEventListener("load", () => {
+        let prevValues = window.localStorage.getItem("images")
+        prevValues = prevValues ? JSON.parse(prevValues) : []
+        window.localStorage.setItem("images", JSON.stringify([...prevValues, fileReader.result]))
+        appendImage(fileReader.result)
+      })
+      fileReader.readAsDataURL(imageFile)
+      
+      return false
+    }
+
+    let appendImage = (url) => {
+      let img = document.createElement("img")
+      img.setAttribute("src", url)
+      document.querySelector("#images-container").appendChild(img)
+    }
+
+    let addImgFromLocalStorage = () => {
+      let imgsSaved = window.localStorage.getItem("images")
+      imgsSaved = imgsSaved ? JSON.parse(imgsSaved) : []
+      imgsSaved.forEach((url) => appendImage(url))
+      
+    }
+
+    let deleteImagesFromLocalStorage = () => {
+      localStorage.removeItem("images")
+      document.querySelector("#images-container").innerHTML = ""
+    }
+
+    if (getCookie("min") && getCookie("max")) {
+      document.querySelector("#calculate-form").style.display = "none"
+      if (confirm("min = " + getCookie("min") + " ;max = " + getCookie("max") + ". Delete cookies?")) {
+        eraseCookies(['min', 'max'])
+        window.location.reload()
+      }
+      else
+        alert("you have cookies. update the page")
+    }
+
+    if (getCookie("color")) {
+      let color = getCookie("color")
+      console.log(color)
+      document.querySelectorAll(".bordered").forEach((val) => val.style.borderColor = color)
+    }
+
+
+    document.querySelector("#photo-form").addEventListener("submit", uploadImages)
+    document.querySelector("#color-form input").addEventListener("focus", changeBorder)
+    document.querySelector("#delete-images-button").addEventListener("click", deleteImagesFromLocalStorage)
+    document.querySelector("#name").addEventListener("mouseup", () => {
+      if(!window.getSelection().toString())
+        return
+      document.querySelector("#photo-form").style.display = "block"
+    })
+
+
+
+    addImgFromLocalStorage()
+
+    
+  </script>
+
+</body>
+
+</html>

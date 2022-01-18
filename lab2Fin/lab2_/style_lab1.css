@@ -1,0 +1,199 @@
+.bordered {
+    border: 1px solid black;
+    padding: 15px;
+}
+
+body{
+    margin: 0;
+}
+
+.root {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+}
+
+.left-sidebar {
+    width: 200px;
+
+    background-color: rgb(251, 228, 209);
+}
+
+.base{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.page {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.main-part {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.right-sidebar {
+    width: 200px;
+    background-color: rgb(229,238,213);
+    
+}
+
+.footer {
+    height: 120px;
+    background-color: rgb(187, 207, 237);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.header {
+    height: 120px;
+    background-color: rgb(187, 207, 237);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.menu {
+    background-color: rgb(229,238,213);
+    height: 70px;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    height: 100%;
+    justify-content: space-around;
+    margin: 0;
+}
+
+.menu li {
+
+    display: flex;
+    font-size: 20px;
+    height: 100%;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+
+.menu li:hover {
+    background-color: black;
+}
+
+.menu li:hover a{
+    color: bisque;
+}
+
+.menu nav{
+    height: 100%;
+}
+
+.menu a{
+    color: black;
+    text-decoration: none;
+}
+
+.block {
+    height: 100%;
+}
+
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.logo {
+    text-align: center;
+    padding-right: 20px;
+    background-color: white;
+    display: inline-block;
+    width: 400px;
+    font-size: 50px;
+    padding: 10px;
+}
+
+.footer-logo {
+    text-align: center;
+    padding-right: 20px;
+    background-color: white;
+    display: inline-block;
+    width: 400px;
+    min-width: 300px;
+}
+
+.all-rights{
+    text-align: right;
+    width: 100%;
+}
+
+h3 {
+    margin: 0;
+}
+
+.main-text{
+    margin-bottom: 10px;
+}
+
+.header-text{
+    width: 100%;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
+.main-photo{
+    width: 100%;
+  }
+  
+.centered{
+    display: flex;
+    justify-content: center;
+  
+  }
+  
+.centered .image-container{
+    width: 80%;
+  }
+
+.centered .sidebar-photo {
+    width: 105%;
+
+    padding-bottom: 30px;
+}
+
+.footer p {
+    padding-left: 20px;
+}
+
+.form-for-numbers input {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.focus-form {
+    margin-top: 10px;
+}
+
+.focus-element {
+    margin-bottom: 10px;
+}
+
+#photo-form {
+  display: none;
+}
+
+#images-container img {
+  width: 100%;
+}

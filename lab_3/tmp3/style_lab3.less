@@ -1,0 +1,134 @@
+.automatic-element-creation-form {
+  width: 60%;
+  min-width: 400px;
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px -15px;
+
+    .col {
+      max-width: 50%;
+      padding: 0 15px;
+    }
+  }
+
+  input[type='text'] {
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #000;
+    outline: none;
+  }
+
+  .add-row {
+    display: block;
+    background-color: #2e9100;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px 20px;
+    font-size: 20px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    &:hover {
+      background-color: #1e5f00;
+    }
+  }
+
+  button {
+    border: none;
+    font-size: 20px;
+    outline: none;
+    display: block;
+    background-color: #666;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px 20px;
+
+    &:hover {
+      background-color: #222;
+    }
+  }
+
+  .error {
+    border: 2px solid red !important;
+  }
+
+  .tab-item {
+    display: flex;
+    padding: 10px 20px;
+
+    &:nth-child(even) {
+      background-color: #eee;
+    }
+
+    .move {
+      width: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .up {
+        transform: translate(-2px, 6px) rotate(-90deg);
+      }
+
+      .down {
+        transform: translateY(-6px) rotate(90deg);
+      }
+
+      .up,
+      .down {
+        display: block;
+        font-size: 25px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #888;
+          color: #fff;
+        }
+      }
+    }
+
+    .title {
+      padding: 20px 10px;
+
+      input {
+        background-color: transparent;
+      }
+    }
+
+    .text {
+      min-height: 70px;
+      flex: 1;
+      box-sizing: border-box;
+      padding-top: 15px;
+
+      textarea {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 5px;
+        outline: none;
+        resize: vertical;
+        min-height: 35px;
+      }
+    }
+
+    .remove {
+      padding: 16px;
+
+      span {
+        display: block;
+        padding: 5px 7px;
+        background-color: #c00000;
+        color: #fff;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #770000;
+        }
+      }
+    }
+  }
+}
